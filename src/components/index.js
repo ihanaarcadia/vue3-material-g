@@ -30,6 +30,9 @@ import MdToolbar from './MdToolbar'
 import MdTooltip from './MdTooltip'
 import MdProgress from './MdProgress'
 
+
+import MdTable from './MdTable'
+
 export {
   // MdAutocomplete,
   MdAvatar,
@@ -60,5 +63,8 @@ export {
   // MdSteppers,
   MdTabs,
   MdToolbar,
-  MdTooltip
+  MdTooltip,
+
+  MdTable
+
 }

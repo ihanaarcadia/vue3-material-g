@@ -14,14 +14,14 @@
 //   },
 //   plugins: [
 //     vuePlugin(),
-    
+
 //   ],
- 
+
 //   build: {
 //     minify: true,
 // 		target: 'esnext'
 //   },
-  
+
 // }))
 
 import path from 'node:path'
