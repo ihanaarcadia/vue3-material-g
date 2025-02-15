@@ -30,8 +30,8 @@ import MdToolbar from './MdToolbar'
 import MdTooltip from './MdTooltip'
 import MdProgress from './MdProgress'
 
-
 import MdTable from './MdTable'
+import MdApp from './MdApp'
 
 export {
   // MdAutocomplete,
@@ -65,6 +65,7 @@ export {
   MdToolbar,
   MdTooltip,
 
-  MdTable
+  MdTable,
+  MdApp
 
 }

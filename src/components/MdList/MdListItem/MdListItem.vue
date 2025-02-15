@@ -28,14 +28,14 @@
   //  return childrens.default.some(children => children.componentOptions && children.componentOptions.tag === 'md-button')
   //}
 
-  
+
 
   function createListComponent (props) {
 
     return MdListItemButton
   }
 
-  
+
 
   export default {
     name: 'MdListItem',
@@ -44,12 +44,12 @@
       MdButton
     },
     render () {
-			
+
       let children = this.$slots
-			
+
       let listComponent = createListComponent(this.$props,this.$attrs)
       let staticClass = 'md-list-item'
-			
+
 
       return h('li', {
         ...this.$attrs,
@@ -68,7 +68,7 @@
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
+  @use "@/components/MdAnimation/variables";
 
   .md-list-item {
     height: auto;
@@ -113,7 +113,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: padding .4s $md-transition-stand-timing;
+    transition: padding .4s variables.$md-transition-stand-timing;
     will-change: padding;
 
     .md-list.md-dense & {

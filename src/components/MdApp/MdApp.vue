@@ -1,4 +1,5 @@
 <script>
+import { h } from 'vue';
   import MdAppSideDrawer from './MdAppSideDrawer'
   import MdAppInternalDrawer from './MdAppInternalDrawer'
   import MdDrawerRightPrevious from '../MdDrawer/MdDrawerRightPrevious';
@@ -88,11 +89,12 @@
 
   export default {
     name: 'MdApp',
+    debug:"test",
     functional: true,
-    render (createElement, { children, props, data }) {
+    render ({ children, props, data }) {
       let appComponent = MdAppSideDrawer
-      const { context, functionalContext, componentOptions } = createElement(appComponent)
-      const slots = buildSlots(children, context, functionalContext, componentOptions, createElement)
+      const { context, functionalContext, componentOptions } = h(appComponent)
+      const slots = buildSlots(children, context, functionalContext, componentOptions, h)
       const drawers = getDrawers(slots)
 
       drawers.forEach(drawer => {
@@ -108,8 +110,7 @@
           staticClass[name] = true
         })
       }
-
-      return createElement(appComponent, {
+      return h(appComponent, {
         attrs: props,
         class: {...staticClass, ...data.class},
         style: {...data.staticStyle, ...data.style},
@@ -119,8 +120,8 @@
 </script>
 
 <style lang="scss">
-  @import "~components/MdAnimation/variables";
-  @import "~components/MdLayout/mixins";
+  @use "@/components/MdAnimation/variables";
+  @use "@/components/MdLayout/mixins";
 
   .md-app {
     display: flex;
@@ -180,11 +181,11 @@
         position: relative;
         z-index: 2;
 
-        @include md-layout-small {
+        @include mixins.md-layout-small {
           margin: -64px 16px 16px;
         }
 
-        @include md-layout-xsmall {
+        @include mixins.md-layout-xsmall {
           margin: -64px 8px 8px;
         }
       }
@@ -193,7 +194,7 @@
 
   .md-app-drawer {
     &.md-permanent-card + .md-app-scroller .md-content {
-      @include md-layout-small-and-up {
+      @include mixins.md-layout-small-and-up {
         padding-left: 0;
         padding-right: 0;
         border-left: none;
@@ -205,7 +206,7 @@
   .md-app-content {
     padding: 16px;
 
-    @include md-layout-small-and-up {
+    @include mixins.md-layout-small-and-up {
       border-left: 1px solid transparent;
       border-right: 1px solid transparent;
     }
@@ -226,8 +227,8 @@
     display: flex;
     overflow: auto;
     transform: translate3D(0, 0, 0);
-    transition: padding-left .4s $md-transition-default-timing,
-                padding-right .4s $md-transition-default-timing;
+    transition: padding-left .4s variables.$md-transition-default-timing,
+                padding-right .4s variables.$md-transition-default-timing;
     will-change: padding-left, padding-right;
   }
 

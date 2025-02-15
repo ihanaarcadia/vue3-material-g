@@ -17,7 +17,7 @@
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
+  @use "@/components/MdAnimation/variables";
 
   .md-table-toolbar {
     padding-left: 24px;

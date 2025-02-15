@@ -4,7 +4,7 @@
     <md-input :type="type" ref="input" v-model="inputDate" @focus="onFocus" @blur="onBlur" :pattern="pattern" name="datepicker-input" />
 
     <slot />
-		
+
     <keep-alive>
       <md-datepicker-dialog
         v-if="showDialog"
@@ -162,13 +162,13 @@ import { inject } from 'vue'
 			modelValue:{
         immediate: true,
         handler (value) {
-					
+
           this.valueDateToLocalDate()
           if(this.inputDate != value) {
             this.inputDate = value;
           }
         }
-				
+
 			},
       inputDate (value) {
         this.inputDateToLocalDate()
@@ -194,11 +194,11 @@ import { inject } from 'vue'
       // value: {
       //   immediate: true,
       //   handler () {
-					
+
       //     this.valueDateToLocalDate()
       //   }
       // },
-			
+
       mdModelType (type) {
         switch (type) {
         case Date:
@@ -285,17 +285,17 @@ import { inject } from 'vue'
 
           if (isValid(parsedDate)) {
             this.localDate = parse(this.modelValue, this.dateFormat, new Date())
-						
+
           } else {
            	console.log(`The datepicker value is not a valid date. Given value: ${this.modelValue}, format: ${this.dateFormat}`)
           }
         } else {
           console.log(`The datepicker value is not a valid date. Given value: ${this.modelValue}`)
         }
-				
+
       },
       onClear () {
-				
+
 				this.inputDate = "";
         this.$emit('md-clear')
       }
@@ -308,13 +308,13 @@ import { inject } from 'vue'
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
-  @import "@/components/MdLayout/mixins";
+  @use "@/components/MdAnimation/variables";
+  @use "@/components/MdLayout/mixins";
 
   .md-datepicker-overlay {
     opacity: 0;
 
-    @include md-layout-xsmall {
+    @include mixins.md-layout-xsmall {
       opacity: 1;
     }
   }

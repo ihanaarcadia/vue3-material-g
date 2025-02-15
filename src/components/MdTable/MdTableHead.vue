@@ -127,7 +127,7 @@
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
+  @use "@/components/MdAnimation/variables";
 
   .md-table-head {
     padding: 0;
@@ -213,7 +213,7 @@
     position: absolute;
     top: 50%;
     left: 0;
-    transition: .3s $md-transition-default-timing;
+    transition: .3s variables.$md-transition-default-timing;
     transform: translateY(-50%);
     opacity: 0;
     color: rgba(#000, .38);

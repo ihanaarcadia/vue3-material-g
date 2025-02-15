@@ -1,5 +1,5 @@
 import MdTable from './MdTable'
-
+import { h } from 'vue';
 function processChildren (children, createElement) {
   const slotNames = ['md-table-toolbar', 'md-table-empty-state', 'md-table-pagination']
   let nodes = Array.from(children)
@@ -31,12 +31,12 @@ function processChildren (children, createElement) {
 export default {
   name: 'MdTableContainer',
   functional: true,
-  render (createElement, { data, props, children }) {
+  render ({ data, props, children }) {
     let slotChildren = []
     let scopedSlots = data.scopedSlots
 
     if (children) {
-      const { childNodes, slots } = processChildren(children, createElement)
+      const { childNodes, slots } = processChildren(children, h)
 
       slotChildren = childNodes
       scopedSlots = {
@@ -45,7 +45,7 @@ export default {
       }
     }
 
-    return createElement(MdTable, {
+    return h(MdTable, {
       ...data,
       props,
       scopedSlots

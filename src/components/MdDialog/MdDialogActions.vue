@@ -11,7 +11,7 @@
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
+  @use "@/components/MdAnimation/variables";
 
   .md-dialog-actions {
     min-height: 52px;
@@ -21,7 +21,7 @@
     justify-content: flex-end;
 		position: relative;
 		backface-visibility: hidden;
-	
+
 
     &:before {
       height: 1px;

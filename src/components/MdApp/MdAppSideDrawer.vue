@@ -14,7 +14,7 @@
 </template>
 
 <script>
-  import MdComponent from 'core/MdComponent'
+  import MdComponent from '@/core/MdComponent'
   import MdAppMixin from './MdAppMixin'
 
   export default new MdComponent({
@@ -24,7 +24,7 @@
 </script>
 
 <style lang="scss">
-  @import "~components/MdAnimation/variables";
+  @use "@/components/MdAnimation/variables";
 
   .md-app-side-drawer {
     .md-app-container {

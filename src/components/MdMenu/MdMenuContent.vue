@@ -6,7 +6,7 @@
         :style="menuStyles"
 				v-if="shouldRender"
         ref="menu">
-				
+
         <div class="md-menu-content-container md-scrollbar" :class="$mdActiveTheme" ref="container">
           <md-list :class="listClasses" v-bind="filteredAttrs" >
             <slot />
@@ -26,7 +26,7 @@
   import MdList from '@/components/MdList/MdList.vue'
   import MdContains from '@/core/utils/MdContains'
 
-	
+
 
   export default new MdComponent({
 		emits:['setParentOffsets'],
@@ -55,7 +55,7 @@
 			typingBuffer:'',
 			I_id:false,
 			I_keyListenersEnabled:false
-			
+
     }),
     computed: {
       filteredAttrs () {
@@ -90,10 +90,10 @@
       shouldRender (shouldRender) {
         if (shouldRender) {
           this.setPopperSettings()
-					
+
           setTimeout(() => {
             this.setInitialHighlightIndex()
-            
+
             this.createResizeObserver()
             this.createKeydownListener()
           }, 0)
@@ -102,13 +102,13 @@
 						this.observerTimeout = false;
 					}
 					this.observerTimeout = setTimeout(() => {
-            
+
             this.createClickEventObserver()
-            
+
           }, 200)
         }
       },
-			
+
     },
     methods: {
       setPopperSettings () {
@@ -127,7 +127,7 @@
             offsetX = 8
           }
         }
-				
+
         this.popperSettings = {
           placement: direction,
           modifiers: {
@@ -164,17 +164,17 @@
 				var matchedStart = false
 				var matchedContains = false
 				for (const el of this.highlightItems) {
-					
+
 					var textEl = el.querySelector('.md-list-item-text');
 					if(textEl) {
 						var text = textEl.innerHTML.toLowerCase();
-						
+
 						if(text) {
 							if(text.startsWith(_this.typingBuffer)) {
 								matchedStart = true
 								break;
 							} else if (_this.typingBuffer.length > 1 && text.includes(_this.typingBuffer) && !text.startsWith('-')) {
-								
+
 								matchedContains = idx
 
 							}
@@ -182,8 +182,8 @@
 					}
 					idx++
 				}
-				
-				
+
+
 				return matchedStart ? idx : (matchedContains ? matchedContains : 0)
 			},
       setHighlight (direction, fromTyping) {
@@ -193,8 +193,8 @@
 					if(fromTyping && this.typingBuffer.length > 0) {
 						var index = this.getIndexHighlightFromTyping()
 						this.highlightIndex = index
-						
-					
+
+
 					} else {
 						if (direction === 'down') {
 							if (this.highlightIndex === this.highlightItems.length - 1) {
@@ -209,7 +209,7 @@
 								this.highlightIndex--
 							}
 						}
-						
+
 					}
 					//console.log(this.highlightIndex);
 
@@ -244,7 +244,7 @@
       },
       onEsc () {
         this.MdMenu.active = false
-				
+
         this.destroyKeyDownListener()
       },
       getOffsets () {
@@ -283,8 +283,8 @@
           })
         }
       },
-      createKeydownListener () {	
-				var id = this.id ? this.id : this.I_id			
+      createKeydownListener () {
+				var id = this.id ? this.id : this.I_id
 				if(this.I_keyListenersEnabled) {
 					return false
 				}
@@ -293,17 +293,17 @@
 				this.I_keyListenersEnabled = true;
       },
       destroyKeyDownListener () {
-						
+
         window.removeEventListener('keydown', this.keyNavigationListener)
 				this.I_keyListenersEnabled = false
-				
+
       },
       keyNavigation (event, id) {
 				if(!this.show || (this.id && id !== this.id) || (!this.id && this.I_id && id != this.I_id)) {
 					return false;
 				}
-				
-				
+
+
         switch (event.key) {
 					case 'ArrowUp':
 						event.preventDefault()
@@ -318,7 +318,7 @@
 					case 'Enter':
 						this.setSelection()
 						event.stopPropagation();
-						
+
 						break
 
 					case 'Space':
@@ -348,20 +348,20 @@
 
 					this.typingBuffer += event.key
 					this.setHighlight(false, true)
-					
+
 					var _this = this
 
 					this.typingTimeout = setTimeout(function() {
-						
+
 						_this.typingBuffer = ""
-						
+
 					},400)
 				}
-				
-				
+
+
 			},
       createResizeObserver () {
-				
+
         this.MdMenu.windowResizeObserver =  MdResizeObserver(window, this.setStyles)
       },
       setupWatchers () {
@@ -408,21 +408,21 @@
       if (this.MdMenu.windowResizeObserver) {
         this.MdMenu.windowResizeObserver.destroy()
       }
-			
+
       this.destroyKeyDownListener()
     }
   })
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
-  @import "@/components/MdElevation/mixins";
-  @import "@/components/MdLayout/mixins";
+  @use "@/components/MdAnimation/variables";
+  @use "@/components/MdElevation/mixins" as elevationmixins;
+  @use "@/components/MdLayout/mixins" as layoutmixins;
 
   $md-menu-base-width: 56px;
 
   .md-menu-content {
-    @include md-elevation(8);
+    @include elevationmixins.md-elevation(8);
     min-width: $md-menu-base-width * 2;
     max-width: $md-menu-base-width * 5;
     max-height: 35vh;
@@ -431,8 +431,8 @@
     position: absolute;
     z-index: 60;
     border-radius: 2px;
-    transition: transform .2s $md-transition-stand-timing,
-                opacity .3s $md-transition-stand-timing;
+    transition: transform .2s variables.$md-transition-stand-timing,
+                opacity .3s variables.$md-transition-stand-timing;
     will-change: opacity, transform, top, left !important;
 
     &.md-shallow {
@@ -448,7 +448,7 @@
     }
 
     &.md-menu-content-leave-active {
-      transition: opacity .4s $md-transition-default-timing;
+      transition: opacity .4s variables.$md-transition-default-timing;
       opacity: 0;
     }
 
@@ -516,7 +516,7 @@
     overflow: auto;
 
     .md-list {
-      transition: opacity .3s $md-transition-stand-timing;
+      transition: opacity .3s variables.$md-transition-stand-timing;
       will-change: opacity;
       font-family: 'Roboto', sans-serif;
       text-transform: none;
@@ -526,7 +526,7 @@
         height: 100%;
       }
 
-      @include md-layout-small {
+      @include layoutmixins.md-layout-small {
         font-size: 14px;
       }
     }

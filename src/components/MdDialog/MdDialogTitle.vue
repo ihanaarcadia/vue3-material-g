@@ -11,7 +11,7 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
+  @use "@/components/MdAnimation/variables";
 
   .md-dialog-title {
     margin-bottom: 20px;

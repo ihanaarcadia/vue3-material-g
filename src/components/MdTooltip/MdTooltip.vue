@@ -14,13 +14,13 @@
   import MdPropValidator from '@/core/utils/MdPropValidator'
   import MdPopover from '@/components/MdPopover/MdPopover.vue'
 
-	
+
 
   export default new MdComponent({
 		setup() {
       // accessible inside setup function
       const instance = getCurrentInstance();
-  			
+
       return {instance}
     },
     name: 'MdTooltip',
@@ -82,8 +82,8 @@
     mounted () {
       this.$nextTick().then(() => {
         this.shouldRender = this.mdActive
-				
-				
+
+
 				if(this.mdTargetref) {
 					if(this.instance.parent.refs[this.mdTargetref]) {
 						this.targetEl = this.instance.parent.refs[this.mdTargetref][0];
@@ -91,11 +91,11 @@
 				} else {
 					//console.log(this.instance);
         	this.targetEl = this.instance.parent.vnode.el;
-					
+
 				}
 
         if (this.targetEl) {
-					
+
           this.targetEl.addEventListener('mouseenter', this.show, false)
 					var _this = this;
 					this.targetEl.addEventListener('touchstart', function(){
@@ -117,8 +117,8 @@
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
-  @import "@/components/MdLayout/mixins";
+  @use "@/components/MdAnimation/variables";
+  @use "@/components/MdLayout/mixins";
 
   $md-tooltip-height: 22px;
   $md-tooltip-height-mobile: 32px;
@@ -130,7 +130,7 @@
     z-index: 111;
     pointer-events: none;
     border-radius: 2px;
-    transition: .15s $md-transition-enter-timing;
+    transition: .15s variables.$md-transition-enter-timing;
     transition-property: opacity, transform;
     will-change: opacity, transform, top, left !important;
     font-size: 10px;
@@ -138,14 +138,14 @@
     text-transform: none;
     white-space: nowrap;
 
-    @include md-layout-small {
+    @include mixins.md-layout-small {
       height: $md-tooltip-height-mobile;
       font-size: 14px;
       line-height: $md-tooltip-height-mobile;
     }
 
     &.md-tooltip-leave-active {
-      transition-timing-function: $md-transition-leave-timing;
+      transition-timing-function: variables.$md-transition-leave-timing;
     }
 
     &.md-tooltip-enter-from,

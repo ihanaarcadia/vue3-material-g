@@ -335,9 +335,9 @@
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
-  @import "@/components/MdElevation/mixins";
-  @import "@/components/MdLayout/mixins";
+  @use "@/components/MdAnimation/variables";
+  @use "@/components/MdElevation/mixins";
+  @use "@/components/MdLayout/mixins";
 
   .md-autocomplete {
     .md-menu {

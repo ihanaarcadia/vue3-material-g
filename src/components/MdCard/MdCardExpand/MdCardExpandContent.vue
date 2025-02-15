@@ -71,12 +71,12 @@
 </script>
 
 <style lang="scss">
-  @import "~/components/MdAnimation/variables.scss";
+  @use "@/components/MdAnimation/variables.scss";
 
   .md-card-expand-content {
     overflow: hidden;
     transform: translate3D(0, 0, 0);
-    transition: .4s $md-transition-default-timing;
+    transition: .4s variables.$md-transition-default-timing;
     transition-property: opacity, margin-top;
     will-change: opacity, margin-top;
   }

@@ -239,14 +239,14 @@
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
-  @import "@/components/MdElevation/mixins";
-  @import "@/components/MdLayout/mixins";
+  @use "@/components/MdAnimation/variables";
+  @use "@/components/MdElevation/mixins";
+  @use "@/components/MdLayout/mixins";
 
   $md-stepper-icon-size: 24px;
 
   .md-steppers {
-    transition: .3s $md-transition-default-timing;
+    transition: .3s variables.$md-transition-default-timing;
     transition-property: color, background-color;
     will-change: color, background-color;
 
@@ -255,7 +255,7 @@
     }
 
     &.md-dynamic-height .md-steppers-wrapper {
-      transition: height .3s $md-transition-default-timing;
+      transition: height .3s variables.$md-transition-default-timing;
       will-change: height;
     }
 
@@ -313,7 +313,7 @@
             position: absolute;
             top: 50%;
             z-index: 2;
-            transition: background-color .3s $md-transition-default-timing;
+            transition: background-color .3s variables.$md-transition-default-timing;
             will-change: background-color;
             content: " ";
           }
@@ -370,7 +370,7 @@
           bottom: -8px;
           left: 36px;
           z-index: 2;
-          transition: background-color .3s $md-transition-default-timing;
+          transition: background-color .3s variables.$md-transition-default-timing;
           will-change: background-color;
           content: " ";
         }
@@ -419,7 +419,7 @@
       padding: 0 8px;
       display: flex;
       align-items: center;
-      transition: color .3s $md-transition-default-timing;
+      transition: color .3s variables.$md-transition-default-timing;
       will-change: color;
 
       &:after,
@@ -427,7 +427,7 @@
         height: 1px;
         position: absolute;
         top: 50%;
-        transition: background-color .3s $md-transition-default-timing;
+        transition: background-color .3s variables.$md-transition-default-timing;
         will-change: background-color;
         content: " ";
       }
@@ -443,7 +443,7 @@
       }
 
       svg {
-        transition: .3s $md-transition-default-timing;
+        transition: .3s variables.$md-transition-default-timing;
         transition-property: color, fill;
         will-change: color, fill;
       }
@@ -461,7 +461,7 @@
   .md-stepper-icon,
   .md-stepper-number {
     margin-right: 8px;
-    transition: color .3s $md-transition-default-timing;
+    transition: color .3s variables.$md-transition-default-timing;
     will-change: color;
   }
 
@@ -469,7 +469,7 @@
     width: $md-stepper-icon-size;
     height: $md-stepper-icon-size;
     border-radius: $md-stepper-icon-size;
-    transition: .3s $md-transition-default-timing;
+    transition: .3s variables.$md-transition-default-timing;
     transition-property: color, background-color;
     will-change: color, background-color;
     font-size: 12px;
@@ -511,7 +511,7 @@
     align-items: flex-start;
     flex-wrap: nowrap;
     transform: translateZ(0);
-    transition: transform .35s $md-transition-default-timing;
+    transition: transform .35s variables.$md-transition-default-timing;
     will-change: transform;
   }
 

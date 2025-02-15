@@ -1,7 +1,9 @@
-@import "./variables.scss";
-
+@use "./variables.scss";
+@use "sass:map";
+@use 'sass:math';
+@use 'sass:meta';
 @mixin md-elevation($z-value) {
-  @if type-of($z-value) != number or not unitless($z-value) {
+  @if meta.type-of($z-value) != number or not math.is-unitless($z-value) {
     @error "$z-value must be a unitless number";
   }
 
@@ -10,7 +12,7 @@
   }
 
   box-shadow:
-    #{map-get($md-elevation-umbra, $z-value)} $md-elevation-umbra-color,
-    #{map-get($md-elevation-penumbra, $z-value)} $md-elevation-penumbra-color,
-    #{map-get($md-elevation-ambient, $z-value)} $md-elevation-ambient-color;
+    #{map.get(variables.$md-elevation-umbra, $z-value)} variables.$md-elevation-umbra-color,
+    #{map.get(variables.$md-elevation-penumbra, $z-value)} variables.$md-elevation-penumbra-color,
+    #{map.get(variables.$md-elevation-ambient, $z-value)} variables.$md-elevation-ambient-color;
 }

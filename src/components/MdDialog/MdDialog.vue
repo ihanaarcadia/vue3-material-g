@@ -6,7 +6,7 @@
           <div
             class="md-dialog-container"
             :class="[dialogContainerClasses, $mdActiveTheme]"
-            
+
             @keydown.esc="onEsc"
           >
             <slot />
@@ -71,7 +71,7 @@
 		},
 		data: () => ({
 			I_mdTargetLastScroll: false,
-			
+
 		}),
 		computed: {
 			dialogClasses() {
@@ -87,11 +87,11 @@
 		},
 		watch: {
 			mdActive(isActive) {
-				
+
 				if (this.mdTarget) {
 					if (isActive) {
 						this.I_mdTargetLastScroll = this.mdTarget.scrollTop;
-						
+
 						this.mdTarget.style.overflow = "hidden";
 					} else {
 						this.mdTarget.style.overflow = "auto";
@@ -113,7 +113,7 @@
 				//this.$emit("update:mdActive", false);
 			},
 			onClick() {
-				
+
 				if (this.mdClickOutsideToClose) {
 					this.closeDialog();
 				}
@@ -129,9 +129,9 @@
 </script>
 
 <style lang="scss">
-	@import "@/components/MdAnimation/variables";
-	@import "@/components/MdLayout/mixins";
-	@import "@/components/MdElevation/mixins";
+	@use "@/components/MdAnimation/variables";
+	@use "@/components/MdLayout/mixins" as layoutmixins;
+	@use "@/components/MdElevation/mixins" as elevationmixins;
 
 	$opacity-transition-duration: 0.15s;
 	$transform-transition-duration: 0.2s;
@@ -153,7 +153,7 @@
 		transition-duration: $max-duration;
 		z-index: 110;
 
-		
+
 
 		&.md-dialog-leave,
 		&.md-dialog-enter-to {
@@ -163,7 +163,7 @@
 			}
 
 			.md-dialog-fullscreen {
-				@include md-layout-xsmall {
+				@include layoutmixins.md-layout-xsmall {
 					opacity: 0;
 					transform: translate(0, 30%);
 				}
@@ -178,7 +178,7 @@
 			}
 
 			.md-dialog-fullscreen {
-				@include md-layout-xsmall {
+				@include layoutmixins.md-layout-xsmall {
 					opacity: 1;
 					transform: translate(0, 0);
 				}
@@ -187,7 +187,7 @@
 	}
 
 	.md-dialog-container {
-		@include md-elevation(24);
+		@include elevationmixins.md-elevation(24);
 		min-width: 280px;
 		max-width: 80%;
 		max-height: 80%;
@@ -200,8 +200,8 @@
 		pointer-events: auto;
 		opacity: 1;
 		transform-origin: center center;
-		transition: opacity $opacity-transition-duration $md-transition-stand-timing,
-			transform $transform-transition-duration $md-transition-stand-timing;
+		transition: opacity $opacity-transition-duration variables.$md-transition-stand-timing,
+			transform $transform-transition-duration variables.$md-transition-stand-timing;
 		will-change: opacity, transform;
 
 		&.md-dialog-leave,
@@ -228,14 +228,14 @@
 		}
 
 		.md-tab {
-			@include md-layout-xsmall {
+			@include layoutmixins.md-layout-xsmall {
 				padding: 12px;
 			}
 		}
 	}
 
 	.md-dialog-fullscreen {
-		@include md-layout-xsmall {
+		@include layoutmixins.md-layout-xsmall {
 			width: 100%;
 			height: 100%;
 			max-width: 100%;

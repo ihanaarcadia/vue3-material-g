@@ -143,8 +143,8 @@
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
-  @import "@/components/MdLayout/mixins";
+  @use "@/components/MdAnimation/variables";
+  @use "@/components/MdLayout/mixins";
 
   .md-menu {
     display: inline-block;

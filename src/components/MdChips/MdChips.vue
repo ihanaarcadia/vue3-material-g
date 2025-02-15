@@ -162,7 +162,7 @@
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
+  @use "@/components/MdAnimation/variables";
 
   .md-chips.md-field {
     padding-top: 12px;

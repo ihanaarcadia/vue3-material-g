@@ -120,12 +120,12 @@
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
+  @use "@/components/MdAnimation/variables";
 
   .md-list-item-expand {
     border-top: 1px solid transparent;
     border-bottom: 1px solid transparent;
-    transition: border .4s $md-transition-stand-timing;
+    transition: border .4s variables.$md-transition-stand-timing;
     will-change: border;
 
     &.md-active {
@@ -146,13 +146,13 @@
       opacity: 0;
       overflow: hidden;
       transform: translate3D(0, -24px, 0);
-      transition: .4s $md-transition-stand-timing;
+      transition: .4s variables.$md-transition-stand-timing;
       transition-property: transform, opacity;
       will-change: transform, opacity;
     }
 
     .md-list-expand-icon {
-      transition: transform .4s $md-transition-stand-timing;
+      transition: transform .4s variables.$md-transition-stand-timing;
       will-change: transform;
     }
   }

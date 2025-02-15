@@ -454,7 +454,7 @@
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
+  @use "@/components/MdAnimation/variables";
 
   .md-menu.md-select {
     display: flex;
@@ -495,7 +495,7 @@
     }
 
     .md-list {
-      transition: opacity .3s $md-transition-drop-timing;
+      transition: opacity .3s variables.$md-transition-drop-timing;
     }
   }
 	.hide {

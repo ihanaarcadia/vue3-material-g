@@ -136,7 +136,7 @@
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
+  @use "@/components/MdAnimation/variables";
 
   .md-steppers.md-vertical .md-stepper-content {
     padding: 0 24px 0 60px;
@@ -144,7 +144,7 @@
     overflow: hidden;
     opacity: 0;
     transform: translate3D(0, -20px, 0);
-    transition: .35s $md-transition-stand-timing;
+    transition: .35s variables.$md-transition-stand-timing;
     transition-property: opacity, transform, height, padding-bottom;
     will-change: opacity, transform, height, padding-bottom;
 

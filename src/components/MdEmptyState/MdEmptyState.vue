@@ -2,7 +2,7 @@
   <transition name="md-empty-state" appear>
     <div class="md-empty-state" :class="[emptyStateClasses, $mdActiveTheme]" :style="emptyStateStyles">
       <div class="md-empty-state-container">
-        
+
         <strong class="md-empty-state-label" v-if="mdLabel">{{ mdLabel }}</strong>
         <p class="md-empty-state-description" v-if="mdDescription">{{ mdDescription }}</p>
 
@@ -15,11 +15,11 @@
 <script>
   import MdComponent from '@/core/MdComponent'
   import MdEmptyStateProps from './MdEmptyStateProps'
-  
+
 
   export default new MdComponent({
     name: 'MdEmptyState',
-    
+
     props: MdEmptyStateProps,
     computed: {
       emptyStateClasses () {
@@ -42,8 +42,8 @@
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
- 
+  @use "@/components/MdAnimation/variables";
+
 
   @mixin md-empty-state-base () {
     display: flex;
@@ -59,8 +59,8 @@
     padding: 36px;
     margin: 0 auto;
     position: relative;
-    transition: opacity .15s $md-transition-enter-timing,
-                transform .3s $md-transition-enter-timing;
+    transition: opacity .15s variables.$md-transition-enter-timing,
+                transform .3s variables.$md-transition-enter-timing;
     will-change: transform, opacity;
 
     &.md-rounded {
@@ -93,12 +93,12 @@
 
   .md-empty-state-container {
     @include md-empty-state-base;
-    transition: opacity .4s $md-transition-default-timing;
+    transition: opacity .4s variables.$md-transition-default-timing;
     will-change: opacity;
   }
 
   .md-empty-state-icon {
-    
+
     margin: 0;
   }
 

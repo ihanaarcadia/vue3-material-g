@@ -55,7 +55,7 @@
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
+  @use "@/components/MdAnimation/variables";
 
   .md-speed-dial {
     display: inline-flex;
@@ -166,8 +166,8 @@
         pointer-events: auto;
         opacity: 1;
         transform: translate3d(0, 0, 0) scale(1) !important;
-        transition: opacity .2s $md-transition-default-timing,
-                    transform .3s $md-transition-stand-timing;
+        transition: opacity .2s variables.$md-transition-default-timing,
+                    transform .3s variables.$md-transition-stand-timing;
 
         @for $index from 0 through 5 {
           &[md-button-index="#{$index}"] {
@@ -184,8 +184,8 @@
     .md-speed-dial-content .md-button {
       pointer-events: none;
       opacity: 0;
-      transition: opacity .3s $md-transition-default-timing,
-                  transform 0s .3s $md-transition-default-timing;
+      transition: opacity .3s variables.$md-transition-default-timing,
+                  transform 0s .3s variables.$md-transition-default-timing;
       will-change: opacity, transform;
     }
 
@@ -195,7 +195,7 @@
       top: 50%;
       left: 50%;
       transform: translate3D(-50%, -50%, 0);
-      transition: .3s $md-transition-stand-timing;
+      transition: .3s variables.$md-transition-stand-timing;
       transition-property: opacity, transform;
       will-change: opacity, transform;
     }

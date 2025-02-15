@@ -21,15 +21,15 @@
 
   export default new MdComponent({
 		setup() {
-			
+
 
 			const instance = getCurrentInstance();
-			
+
 
 			return {
-				
+
 				instance
-				
+
 			}
 		},
     name: 'MdBadge',
@@ -74,7 +74,7 @@
     },
     methods: {
       getStaticClass () {
-				
+
         const staticClass = this.instance.attrs.class
 
         function filterClasses () {
@@ -91,7 +91,7 @@
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
+  @use "@/components/MdAnimation/variables";
 
   .md-badge-content {
     position: relative;

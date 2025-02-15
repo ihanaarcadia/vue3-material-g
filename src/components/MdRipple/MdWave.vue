@@ -31,10 +31,10 @@
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
+  @use "@/components/MdAnimation/variables";
 
   .md-ripple-enter-active {
-    transition: .8s $md-transition-stand-timing;
+    transition: .8s variables.$md-transition-stand-timing;
     transition-property: opacity, transform;
     will-change: opacity, transform;
 		

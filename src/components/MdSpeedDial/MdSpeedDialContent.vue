@@ -45,7 +45,7 @@
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
+  @use "@/components/MdAnimation/variables";
 
   .md-speed-dial-content {
     display: flex;
@@ -53,6 +53,6 @@
     align-items: center;
     position: relative;
     z-index: 2;
-    transition: .3s $md-transition-default-timing;
+    transition: .3s variables.$md-transition-default-timing;
   }
 </style>

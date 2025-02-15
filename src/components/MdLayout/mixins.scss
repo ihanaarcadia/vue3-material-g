@@ -1,4 +1,4 @@
-@import "./variables.scss";
+@use "./variables.scss";
 
 
 /**
@@ -6,31 +6,31 @@
  */
 
 @mixin md-layout-xsmall {
-  @media (max-width: #{$md-breakpoint-xsmall}) {
+  @media (max-width: #{variables.$md-breakpoint-xsmall}) {
     @content;
   }
 }
 
 @mixin md-layout-small {
-  @media (max-width: #{$md-breakpoint-small}) {
+  @media (max-width: #{variables.$md-breakpoint-small}) {
     @content;
   }
 }
 
 @mixin md-layout-medium {
-  @media (max-width: #{$md-breakpoint-medium}) {
+  @media (max-width: #{variables.$md-breakpoint-medium}) {
     @content;
   }
 }
 
 @mixin md-layout-large {
-  @media (max-width: #{$md-breakpoint-large - 17px}) {
+  @media (max-width: #{variables.$md-breakpoint-large - 17px}) {
     @content;
   }
 }
 
 @mixin md-layout-xlarge {
-  @media (min-width: #{$md-breakpoint-large - 16px}) {
+  @media (min-width: #{variables.$md-breakpoint-large - 16px}) {
     @content;
   }
 }
@@ -42,19 +42,19 @@
 }
 
 @mixin md-layout-small-and-up {
-  @media (min-width: #{$md-breakpoint-xsmall}) {
+  @media (min-width: #{variables.$md-breakpoint-xsmall}) {
     @content;
   }
 }
 
 @mixin md-layout-medium-and-up {
-  @media (min-width: #{$md-breakpoint-small}) {
+  @media (min-width: #{variables.$md-breakpoint-small}) {
     @content;
   }
 }
 
 @mixin md-layout-large-and-up {
-  @media (min-width: #{$md-breakpoint-medium}) {
+  @media (min-width: #{variables.$md-breakpoint-medium}) {
     @content;
   }
 }

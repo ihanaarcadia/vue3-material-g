@@ -41,7 +41,8 @@ export default defineConfig({
       "@": path.resolve(__dirname, 'src'),
       "~": path.resolve(__dirname, 'src'),
 			"@localconfig": path.resolve(__dirname, 'src'),
-    }
+    },
+    extensions:['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json','.vue','.scss','.css','.sass']
   },
   build: {
     lib: {

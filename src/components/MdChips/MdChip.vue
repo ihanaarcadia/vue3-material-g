@@ -58,8 +58,8 @@
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
-  @import "@/components/MdElevation/mixins";
+  @use "@/components/MdAnimation/variables";
+  @use "@/components/MdElevation/mixins";
 
   $md-chips-height: 32px;
 
@@ -69,7 +69,7 @@
     display: inline-block;
     cursor: default;
     border-radius: $md-chips-height;
-    transition: .3s $md-transition-stand-timing;
+    transition: .3s variables.$md-transition-stand-timing;
     transition-property: background-color, color, opacity, transform, box-shadow;
     will-change: background-color, color, opacity, transform, box-shadow;
     font-size: 13px;
@@ -144,7 +144,7 @@
       z-index: 11;
       transform: translate3D(0, -50%, 0);
       transition-duration: .3s;
-      transition-timing-function: $md-transition-stand-timing;
+      transition-timing-function: variables.$md-transition-stand-timing;
       font-size: 18px;
 
       .md-ripple {
@@ -164,7 +164,7 @@
 
         svg {
           transition-duration: .3s;
-          transition-timing-function: $md-transition-stand-timing;
+          transition-timing-function: variables.$md-transition-stand-timing;
         }
       }
     }

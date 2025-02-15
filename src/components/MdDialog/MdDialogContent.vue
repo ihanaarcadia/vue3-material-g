@@ -13,7 +13,7 @@
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
+  @use "@/components/MdAnimation/variables";
 
   .md-dialog-content {
     padding: 0 24px 24px;

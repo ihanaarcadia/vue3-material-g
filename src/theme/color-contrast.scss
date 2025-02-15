@@ -325,9 +325,9 @@ $md-linear-channel-values:
  */
 
 @function md-pick-contrast($color) {
-  $lightColor: map-get(map-get($md-color-levels, dark), text-primary);
+  $lightColor: map.get(map.get($md-color-levels, dark), text-primary);
   $lightContrast: md-calculate-contrast($color, $lightColor);
-  $darkColor: map-get(map-get($md-color-levels, light), text-primary);
+  $darkColor: map.get(map.get($md-color-levels, light), text-primary);
   $darkContrast: md-calculate-contrast($color, $darkColor);
 
   @if ($lightContrast > $darkContrast) {

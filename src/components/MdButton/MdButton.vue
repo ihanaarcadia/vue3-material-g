@@ -9,7 +9,7 @@
   import MdRouterLinkProps from '@/core/utils/MdRouterLinkProps'
   import MdButtonContent from './MdButtonContent.vue'
 
-	
+
   export default new MdComponent({
     name: 'MdButton',
     data () {
@@ -46,16 +46,16 @@
     render () {
 			const buttonContentComps = resolveComponent('md-button-content')
       const buttonContent = h(buttonContentComps, {
-        
+
         mdRipple: this.mdRipple,
         disabled: this.disabled,
-        
+
         mdRippleActive: this.rippleActive,
         'onUpdate:MdRippleActive': active => this.rippleActive = active,
-        
+
       }, this.$slots.default)
-			
-			
+
+
       let buttonAttrs = {
 				...this.$attrs,
         class: [
@@ -66,7 +66,7 @@
             'md-focused': this.mdHasFocus
           }
         ],
-       
+
         href: this.href,
         disabled: this.disabled,
         type: !this.href && (this.type || 'button'),
@@ -83,9 +83,9 @@
 					this.$attrs.touchstart && this.$attrs.touchstart(event)
 				},
 				onMousedown: event => {
-					
+
 					if (this.rippleWorks) {
-						
+
 						this.rippleActive = event
 					}
 					this.$attrs.onMousedown && this.$attrs.onMousedown(event)
@@ -98,7 +98,7 @@
 				if (this.href) {
 					tag = 'a'
 				} else if (this.isRouterLink) {
-					
+
 					this.$options.props = MdRouterLinkProps(this, this.$options.props)
 					tag = resolveComponent('router-link')
 					const exactActiveClass = this.$props.exactActiveClass
@@ -121,9 +121,9 @@
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
-  @import "@/components/MdElevation/mixins";
-  @import "@/components/MdElevation/variables";
+  @use "@/components/MdAnimation/variables";
+  @use "@/components/MdElevation/mixins";
+  @use "@/components/MdElevation/variables" as elevationvariables;
 
   $md-button-min-width: 88px;
   $md-button-height: 36px;
@@ -147,7 +147,7 @@
     background: transparent;
     border: 0;
     border-radius: 0;
-    transition: $md-transition-default;
+    transition: variables.$md-transition-default;
     font-family: inherit;
     line-height: normal;
     text-decoration: none;
@@ -232,7 +232,7 @@
       left: 0;
       z-index: 1;
       opacity: 0;
-      transition: $md-transition-default;
+      transition: variables.$md-transition-default;
       will-change: background-color, opacity;
       content: " ";
     }
@@ -243,10 +243,10 @@
     }
 
     &.md-raised:not([disabled]) {
-      @include md-elevation(2);
+      @include mixins.md-elevation(2);
 
       &:active {
-        @include md-elevation(8);
+        @include mixins.md-elevation(8);
       }
 
       &.md-ripple-off:active:before {
@@ -313,7 +313,7 @@
   }
 
   .md-fab {
-    //@include md-elevation(6);
+    //@include mixins.md-elevation(6);
 
     width: $md-button-fab-size;
     height: $md-button-fab-size;
@@ -321,7 +321,7 @@
     overflow: hidden;
 
     &:active {
-      @include md-elevation(12);
+      @include mixins.md-elevation(12);
     }
 
     &.md-mini,

@@ -390,7 +390,7 @@
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
+  @use "@/components/MdAnimation/variables";
 
   .md-table {
     display: flex;
@@ -420,7 +420,7 @@
     .md-table-content {
       flex: 1;
       overflow-x: auto;
-      transition: height .3s $md-transition-default-timing;
+      transition: height .3s variables.$md-transition-default-timing;
     }
 
     .md-table-empty {

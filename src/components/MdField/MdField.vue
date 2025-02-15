@@ -83,7 +83,7 @@
         return this.mdTogglePassword && this.MdField.password
       },
       hasValue () {
-        return (this.stringValue && this.stringValue.length > 0) || this.MdField.hasInvalidValue 
+        return (this.stringValue && this.stringValue.length > 0) || this.MdField.hasInvalidValue
       },
       valueLength () {
         if (this.stringValue) {
@@ -112,7 +112,7 @@
     },
     methods: {
       clearInput () {
-				
+
         this.MdField.clear = true
         this.$emit('md-clear')
         this.$nextTick().then(() => {
@@ -130,7 +130,7 @@
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
+  @use "@/components/MdAnimation/variables";
 
   $md-input-height: 32px;
 
@@ -150,9 +150,9 @@
       right: 0;
       left: 0;
       z-index: 1;
-      transition: border .3s $md-transition-default-timing,
-                  opacity .3s $md-transition-default-timing,
-                  transform 0s .3s $md-transition-default-timing;
+      transition: border .3s variables.$md-transition-default-timing,
+                  opacity .3s variables.$md-transition-default-timing,
+                  transform 0s .3s variables.$md-transition-default-timing;
       will-change: border, opacity, transform;
       content: " ";
     }
@@ -173,7 +173,7 @@
       top: 23px;
       left: 0;
       pointer-events: none;
-      transition: $md-transition-stand;
+      transition: variables.$md-transition-stand;
       transition-duration: .3s;
       font-size: 16px;
       line-height: 20px;
@@ -208,7 +208,7 @@
       flex: 1;
       border: none;
       background: none;
-      transition: $md-transition-stand;
+      transition: variables.$md-transition-stand;
       transition-property: font-size, padding-top, color;
       font-family: inherit;
       font-size: 16px;
@@ -230,7 +230,7 @@
         font-size: 16px;
         text-shadow: none;
         -webkit-text-fill-color: initial;
-        transition: $md-transition-stand;
+        transition: variables.$md-transition-stand;
         transition-property: font-size, color;
       }
     }
@@ -250,7 +250,7 @@
       position: absolute;
       bottom: -22px;
       font-size: 12px;
-      transition: .3s $md-transition-default-timing;
+      transition: .3s variables.$md-transition-default-timing;
     }
 
     .md-error {
@@ -272,7 +272,7 @@
       position: absolute;
       top: 22px;
       right: 0;
-      transition: $md-transition-default;
+      transition: variables.$md-transition-default;
 			line-height: 11px;
 
       &.md-input-action-enter-active,
@@ -289,7 +289,7 @@
       margin: 4px auto;
       position: relative;
       z-index: 3;
-      transition: $md-transition-stand;
+      transition: variables.$md-transition-stand;
 
       &:last-of-type:not(:first-child):after {
         display: none;
@@ -301,7 +301,7 @@
         position: absolute;
         left: -1px;
         bottom: -5px;
-        transition: .3s $md-transition-default-timing;
+        transition: .3s variables.$md-transition-default-timing;
         content: "";
       }
 
@@ -412,7 +412,7 @@
       &:before {
         opacity: 1;
         transform: scaleX(1);
-        transition: .3s $md-transition-default-timing;
+        transition: .3s variables.$md-transition-default-timing;
         transition-property: border, opacity, transform;
       }
     }
@@ -494,7 +494,7 @@
       }
 
       &.md-has-value label:not(:focus) {
-        animation: md-invalid-shake .4s $md-transition-default-timing both;
+        animation: md-invalid-shake .4s variables.$md-transition-default-timing both;
         backface-visibility: hidden;
         perspective: 1000px;
       }
@@ -529,7 +529,7 @@
     }
   }
 	.md-field:has(.md-input:-webkit-autofill) label, .md-field:has(.md-input:autofill) label {
-		
+
     top: 0px;
     font-size: 12px;
 	}

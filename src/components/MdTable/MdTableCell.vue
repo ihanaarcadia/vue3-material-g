@@ -95,12 +95,12 @@
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
+  @use "@/components/MdAnimation/variables";
 
   .md-table-cell {
     height: 48px;
     position: relative;
-    transition: .3s $md-transition-default-timing;
+    transition: .3s variables.$md-transition-default-timing;
     font-size: 13px;
     line-height: 18px;
 

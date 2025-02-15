@@ -136,7 +136,7 @@ function areEqual (array1, array2) {
       MdTabs: {
         deep: true,
         handler () {
-          
+
           this.recomputeOrderedIds()
           //this.setHasContent()
           this.tryKeepCurrentTab()
@@ -299,7 +299,7 @@ function areEqual (array1, array2) {
           }, () => {
             this.callResizeFunctions()
           })
-  
+
           if (window.ResizeObserver) {
             this.resizeObserver2 = new ResizeObserver((entries) => {
               entries.forEach(entry => {
@@ -307,14 +307,14 @@ function areEqual (array1, array2) {
                 this.callResizeFunctions();
               });
             });
-  
+
             // Начинаем наблюдение за изменениями размеров элементов
             const targetElement = this.$el.querySelector('.md-tabs-content');
             if (targetElement) {
               this.resizeObserver2.observe(targetElement);
             }
           }
-  
+
           window.addEventListener('resize', this.callResizeFunctions)
         }catch{}
       },
@@ -322,7 +322,7 @@ function areEqual (array1, array2) {
         if(this.$refs.tabsContainer){
           // const orderedIds = this.ours(this.$refs.tabsContainer.querySelectorAll('.md-tab'))
           //   .map(tabElement => tabElement.mdTabIdAsObject)
-          
+
           const orderedIds = this.ours(this.$refs.tabsContainer.querySelectorAll('.md-tab'))
             .map(tabElement => tabElement.mdTabIdAsObject ?? tabElement.id)
           // Do not force VueJs to rerender the view and us to recompute everything if the change event was not about tabs
@@ -336,7 +336,7 @@ function areEqual (array1, array2) {
        * @return only the md-tab elements that are owned by this md-tabs
        */
       ours (tabElements) {
-        return [].filter.call(tabElements, tabElement => { 
+        return [].filter.call(tabElements, tabElement => {
           return tabElement.parentNode === this.$refs.tabsContainer })
       }
     },
@@ -387,9 +387,9 @@ function areEqual (array1, array2) {
 </script>
 
 <style lang="scss">
-@import "@/components/MdAnimation/variables.scss";
-@import "@/components/MdElevation/mixins";
-@import "@/components/MdLayout/mixins";
+@use "@/components/MdAnimation/variables.scss";
+@use "@/components/MdElevation/mixins" as elevationmixins;
+@use "@/components/MdLayout/mixins" as layoutmixins;
 
 .md-tabs {
   display: flex;
@@ -400,7 +400,7 @@ function areEqual (array1, array2) {
   }
 
   &.md-dynamic-height .md-tabs-content {
-    transition: height .3s $md-transition-default-timing;
+    transition: height .3s variables.$md-transition-default-timing;
     will-change: height;
   }
 
@@ -412,7 +412,7 @@ function areEqual (array1, array2) {
   }
 
   &.md-dynamic-height .md-tabs-content {
-    transition: height .35s $md-transition-stand-timing;
+    transition: height .35s variables.$md-transition-stand-timing;
   }
 
   &.md-alignment-left .md-tabs-navigation {
@@ -435,7 +435,7 @@ function areEqual (array1, array2) {
       min-width: 160px;
       flex: 1;
 
-      @include md-layout-small {
+      @include layoutmixins.md-layout-small {
         min-width: 72px;
       }
     }
@@ -444,7 +444,7 @@ function areEqual (array1, array2) {
   .md-toolbar & {
     padding-left: 48px;
 
-    @include md-layout-small {
+    @include layoutmixins.md-layout-small {
       margin: 0 -8px;
       padding-left: 0px;
     }
@@ -486,7 +486,7 @@ function areEqual (array1, array2) {
   .md-ripple {
     padding: 0 24px;
 
-    @include md-layout-small {
+    @include layoutmixins.md-layout-small {
       padding: 0 12px;
     }
   }
@@ -501,13 +501,13 @@ function areEqual (array1, array2) {
   will-change: left, right;
 
   &.md-tabs-indicator-left {
-    transition: left .3s $md-transition-default-timing,
-                right .35s $md-transition-default-timing;
+    transition: left .3s variables.$md-transition-default-timing,
+                right .35s variables.$md-transition-default-timing;
   }
 
   &.md-tabs-indicator-right {
-    transition: right .3s $md-transition-default-timing,
-                left .35s $md-transition-default-timing;
+    transition: right .3s variables.$md-transition-default-timing,
+                left .35s variables.$md-transition-default-timing;
   }
 }
 
@@ -522,7 +522,7 @@ function areEqual (array1, array2) {
   align-items: flex-start;
   flex-wrap: nowrap;
   transform: translateZ(0);
-  transition: transform .35s $md-transition-default-timing;
+  transition: transform .35s variables.$md-transition-default-timing;
   will-change: transform;
 }
 
@@ -531,7 +531,7 @@ function areEqual (array1, array2) {
   flex: 1 0 100%;
   padding: 16px;
 
-  @include md-layout-small {
+  @include layoutmixins.md-layout-small {
     padding: 8px;
   }
 }

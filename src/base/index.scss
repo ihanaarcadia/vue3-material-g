@@ -1,5 +1,5 @@
-@import "~/components/MdAnimation/variables.scss";
-@import "./base";
-@import "./scrollbar";
-@import "./typography";
-@import "./theme";
+@use "@/components/MdAnimation/variables.scss";
+@use "./base";
+@use "./scrollbar";
+@use "./typography";
+@use "./theme";

@@ -43,7 +43,7 @@
 </script>
 
 <style lang="scss">
-  @import "~components/MdAnimation/variables";
+  @use "@/components/MdAnimation/variables";
 
   .md-no-elevation {
     box-shadow: none !important;
@@ -55,7 +55,7 @@
   .md-overlap {
     .md-reveal-active {
       transform: translate3d(0, calc(100% + 10px), 0);
-      transition: .3s $md-transition-stand-timing;
+      transition: .3s variables.$md-transition-stand-timing;
       transition-property: box-shadow, transform;
       will-change: height, box-shadow, transform;
     }
@@ -72,7 +72,7 @@
   }
 
   .md-fixed-last-active {
-    transition: .3s $md-transition-stand-timing;
+    transition: .3s variables.$md-transition-stand-timing;
     transition-property: box-shadow, transform;
     will-change: height, box-shadow, transform;
   }

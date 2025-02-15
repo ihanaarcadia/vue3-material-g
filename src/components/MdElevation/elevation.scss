@@ -1,11 +1,12 @@
-@import "~/components/MdAnimation/variables.scss";
-@import "./variables.scss";
-@import "./mixins.scss";
+@use "@/components/MdAnimation/variables.scss" as animationvariables;
+@use "./variables.scss";
+@use "./mixins.scss";
+@use 'sass:list';
 
-$md-elevation-count: length($md-elevation-umbra) - 1;
+$md-elevation-count: list.length(variables.$md-elevation-umbra) - 1;
 
 @for $i from 0 through $md-elevation-count {
   .md-elevation-#{$i} {
-    @include md-elevation($i);
+    @include mixins.md-elevation($i);
   }
 }

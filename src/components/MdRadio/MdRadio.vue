@@ -76,7 +76,7 @@
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
+  @use "@/components/MdAnimation/variables";
 
   $md-radio-size: 20px;
   $md-radio-touch-size: 48px;
@@ -102,7 +102,7 @@
       position: relative;
       border: 2px solid transparent;
       border-radius: 50%;
-      transition: $md-transition-stand;
+      transition: variables.$md-transition-stand;
 
       &:focus {
         outline: none;
@@ -111,7 +111,7 @@
       &:before,
       &:after {
         position: absolute;
-        transition: $md-transition-drop;
+        transition: variables.$md-transition-drop;
         content: " ";
       }
 
@@ -165,7 +165,7 @@
       &:after {
         opacity: 1;
         transform: scale3D(1, 1, 1);
-        transition: $md-transition-stand;
+        transition: variables.$md-transition-stand;
       }
     }
   }

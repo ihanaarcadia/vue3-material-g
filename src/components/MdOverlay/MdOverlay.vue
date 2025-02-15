@@ -83,7 +83,7 @@
 	}
 </style>
 <style lang="scss">
-	@import "@/components/MdAnimation/variables";
+	@use "@/components/MdAnimation/variables";
 
 	.md-overlay {
 		position: absolute;
@@ -98,13 +98,13 @@
 		-webkit-animation-duration:0.35s;
 		
   	-webkit-animation-name:mdOverlayAppear;
-  	-webkit-animation-timing-function:$md-transition-default-timing;
+  	-webkit-animation-timing-function:variables.$md-transition-default-timing;
 		-webkit-animation-fill-mode: forwards;
   	animation-duration:0.35s;
 		
 		animation-name:mdOverlayAppear;
 		animation-fill-mode: forwards;
-		animation-timing-function:$md-transition-default-timing;
+		animation-timing-function:variables.$md-transition-default-timing;
 		animation-iteration-count:1;
 		-webkit-animation-iteration-count:1;
 		

@@ -114,7 +114,7 @@ import { inject } from 'vue'
 	import MdDialogActions from '@/components/MdDialog/MdDialogActions.vue'
 	import MdContent from '@/components/MdContent/MdContent.vue'
 
-	
+
 
   const daysInAWeek = 7
 
@@ -295,7 +295,7 @@ import { inject } from 'vue'
           }
         })
       },
-			
+
     },
     methods: {
       setContentStyles () {
@@ -392,15 +392,15 @@ import { inject } from 'vue'
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
-  @import "@/components/MdLayout/mixins";
-  @import "@/components/MdElevation/mixins";
+  @use "@/components/MdAnimation/variables";
+  @use "@/components/MdLayout/mixins" as layoutmixins;
+  @use "@/components/MdElevation/mixins" as elevationmixins;
 
   $md-calendar-width: 320px;
   $md-calendar-mobile-width: 296px;
 
   .md-datepicker-dialog {
-    @include md-elevation(24);
+    @include elevationmixins.md-elevation(24);
     display: flex;
     overflow: hidden;
     z-index: 110;
@@ -409,11 +409,11 @@ import { inject } from 'vue'
     pointer-events: auto;
     transform-origin: top left;
     flex-shrink: 0;
-    transition: opacity .2s $md-transition-stand-timing,
-                transform .35s $md-transition-stand-timing;
+    transition: opacity .2s variables.$md-transition-stand-timing,
+                transform .35s variables.$md-transition-stand-timing;
     will-change: opacity, transform, left, top;
 
-    @include md-layout-xsmall {
+    @include layoutmixins.md-layout-xsmall {
       flex-direction: column;
       top: 50% !important;
       left: 50% !important;
@@ -431,7 +431,7 @@ import { inject } from 'vue'
     opacity: 0;
     transform: scale(.9);
 
-    @include md-layout-xsmall {
+    @include layoutmixins.md-layout-xsmall {
       transform: translate3D(-50%, -50%, 0) scale(.9);
     }
 
@@ -447,7 +447,7 @@ import { inject } from 'vue'
     min-width: 150px;
     padding: 16px;
 
-    @include md-layout-xsmall {
+    @include layoutmixins.md-layout-xsmall {
       min-width: auto;
       padding: 16px 20px;
     }
@@ -455,7 +455,7 @@ import { inject } from 'vue'
     .md-datepicker-year-select {
       cursor: pointer;
       opacity: .84;
-      transition: opacity .3s $md-transition-default-timing;
+      transition: opacity .3s variables.$md-transition-default-timing;
       font-size: 16px;
       font-weight: 700;
       letter-spacing: .01em;
@@ -465,7 +465,7 @@ import { inject } from 'vue'
     .md-datepicker-date-select {
       cursor: pointer;
       opacity: .84;
-      transition: opacity .3s $md-transition-default-timing;
+      transition: opacity .3s variables.$md-transition-default-timing;
       font-size: 32px;
       font-weight: 900;
       letter-spacing: 0;
@@ -475,7 +475,7 @@ import { inject } from 'vue'
     .md-datepicker-dayname {
       display: block;
 
-      @include md-layout-xsmall {
+      @include layoutmixins.md-layout-xsmall {
         display: inline-block;
       }
     }
@@ -489,10 +489,10 @@ import { inject } from 'vue'
     width: $md-calendar-width;
     position: relative;
     overflow: hidden;
-    transition: width .3s $md-transition-stand-timing;
+    transition: width .3s variables.$md-transition-stand-timing;
     will-change: width;
 
-    @include md-layout-xsmall {
+    @include layoutmixins.md-layout-xsmall {
       width: $md-calendar-mobile-width;
     }
 
@@ -550,7 +550,7 @@ import { inject } from 'vue'
 
   .md-datepicker-body-content {
     overflow: hidden;
-    transition: height .35s $md-transition-default-timing;
+    transition: height .35s variables.$md-transition-default-timing;
     will-change: height;
   }
 
@@ -561,7 +561,7 @@ import { inject } from 'vue'
     right: 0;
     bottom: 0;
     left: 0;
-    transition: .35s $md-transition-default-timing;
+    transition: .35s variables.$md-transition-default-timing;
     transition-property: transform, opacity;
     will-change: transform, opacity;
   }
@@ -605,11 +605,11 @@ import { inject } from 'vue'
     top: 8px;
     bottom: auto;
     flex-direction: column;
-    transition: .35s $md-transition-default-timing;
+    transition: .35s variables.$md-transition-default-timing;
     transition-property: transform, opacity;
     will-change: transform, opacity;
 
-    @include md-layout-xsmall {
+    @include layoutmixins.md-layout-xsmall {
       padding: 0 6px;
     }
 
@@ -618,7 +618,7 @@ import { inject } from 'vue'
       margin: 0 46px 10px;
       flex: 1;
       border-radius: 0;
-      transition: transform .45s $md-transition-default-timing;
+      transition: transform .45s variables.$md-transition-default-timing;
       will-change: transform;
     }
   }
@@ -657,7 +657,7 @@ import { inject } from 'vue'
       height: $width;
       cursor: pointer;
       border-radius: $width;
-      transition: .3s $md-transition-default-timing;
+      transition: .3s variables.$md-transition-default-timing;
       line-height: $width;
       text-align: center;
     }
@@ -679,7 +679,7 @@ import { inject } from 'vue'
     padding: 6px 8px 10px;
     flex-wrap: wrap;
     bottom: auto;
-    transition: .35s $md-transition-default-timing;
+    transition: .35s variables.$md-transition-default-timing;
     transition-property: transform, opacity;
     will-change: transform, opacity;
 
@@ -700,7 +700,7 @@ import { inject } from 'vue'
     height: 36px;
     margin: 3px 0;
     cursor: pointer;
-    transition: .3s $md-transition-default-timing;
+    transition: .3s variables.$md-transition-default-timing;
     line-height: 36px;
     /*font-weight: 500;*/text-shadow:  var(--font-mboldfixer);
     text-align: center;

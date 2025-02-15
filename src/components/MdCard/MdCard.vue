@@ -34,9 +34,9 @@
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
-  @import "@/components/MdElevation/mixins";
-  @import "./base";
+  @use "@/components/MdAnimation/variables";
+  @use "@/components/MdElevation/mixins";
+  @use "./base";
 
   $md-card-radius: 2px;
 
@@ -45,13 +45,13 @@
 
     &.md-with-hover {
       cursor: pointer;
-      transition: background-color .3s $md-transition-default-timing,
-                  box-shadow .4s $md-transition-stand-timing;
+      transition: background-color .3s variables.$md-transition-default-timing,
+                  box-shadow .4s variables.$md-transition-stand-timing;
       will-change: background-color, box-shadow;
 
       &:hover {
         z-index: 2;
-        @include md-elevation(8);
+        @include mixins.md-elevation(8);
       }
     }
 

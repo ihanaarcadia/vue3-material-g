@@ -13,7 +13,7 @@
 </script>
 
 <style lang="scss">
-  @import "@/components/MdAnimation/variables";
+  @use "@/components/MdAnimation/variables";
 
   .md-table-alternate-header {
     position: absolute;
@@ -31,10 +31,10 @@
   }
 
   .md-table-alternate-header-enter-active {
-    transition: .3s $md-transition-default-timing;
+    transition: .3s variables.$md-transition-default-timing;
   }
 
   .md-table-alternate-header-leave-active {
-    transition: .2s $md-transition-leave-timing;
+    transition: .2s variables.$md-transition-leave-timing;
   }
 </style>

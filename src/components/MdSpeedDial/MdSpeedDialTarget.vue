@@ -29,7 +29,7 @@
 </script>
 
 <style lang="scss">
-  @import "~/components/MdAnimation/variables.scss";
+  @use "@/components/MdAnimation/variables.scss";
 
   .md-speed-dial-target {
     z-index: 1;
